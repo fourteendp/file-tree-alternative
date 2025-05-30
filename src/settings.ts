@@ -107,8 +107,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
         containerEl.createEl('h2', { text: '常规' });
 
         new Setting(containerEl)
-            .setName('Evernote View')
-            .setDesc('如果你想在一个视图中同时看到文件夹和文件，而无需在视图之间切换，请开启此选项。体验类似 Evernote。')
+            .setName('Evernote 视图')
+            .setDesc('如果你想在一个视图中同时看到文件夹和文件,而无需在视图之间切换,请开启此选项。体验类似 Evernote。')
             .addDropdown((dropdown) => {
                 dropdown
                     .addOption('Disabled', 'Disabled')
@@ -124,7 +124,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
 
         new Setting(containerEl)
             .setName('Ribbon Icon')
-            .setDesc('如果你想要用于激活文件树的侧边栏图标，请开启此选项。')
+            .setDesc('如果你想要用于激活文件树的侧边栏图标,请开启此选项。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.ribbonIcon).onChange((value) => {
                     this.plugin.settings.ribbonIcon = value;
@@ -134,8 +134,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Open on Start')
-            .setDesc('如果你不希望在启动库时自动打开文件树视图，请关闭此选项。')
+            .setName('在启动时打开')
+            .setDesc('如果你不希望在启动库时自动打开文件树视图,请关闭此选项。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.openViewOnStart).onChange((value) => {
                     this.plugin.settings.openViewOnStart = value;
@@ -144,8 +144,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Bookmarks Event Listener (Shift + Click)')
-            .setDesc('启用后，可以通过 Shift+点击核心书签插件中的书签名称来在文件树中定位文件或文件夹。由于目前没有 API 可以覆盖书签插件的默认行为，此选项会添加事件监听以实现该功能。')
+            .setName('书签事件监听器(Shift + 点击)')
+            .setDesc('启用后,可以通过 Shift+点击核心书签插件中的书签名称来在文件树中定位文件或文件夹。由于目前没有 API 可以覆盖书签插件的默认行为,此选项会添加事件监听以实现该功能。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.bookmarksEvents).onChange((value) => {
                     this.plugin.settings.bookmarksEvents = value;
@@ -167,11 +167,11 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             .setDesc('更改默认文件夹图标为你喜欢的样式。')
             .addDropdown((dropdown) => {
                 dropdown
-                    .addOption('default', 'Default')
-                    .addOption('box-folder', 'Box Icons')
-                    .addOption('icomoon', 'IcoMoon Icons')
-                    .addOption('typicon', 'Typicons')
-                    .addOption('circle-gg', 'Circle GG')
+                    .addOption('default', '默认')
+                    .addOption('box-folder', '盒子图标')
+                    .addOption('icomoon', 'IcoMoon 图标')
+                    .addOption('typicon', 'Typicons 图标')
+                    .addOption('circle-gg', '圆形 GG 图标')
                     .setValue(this.plugin.settings.folderIcon)
                     .onChange((value: FolderIcon) => {
                         this.plugin.settings.folderIcon = value;
@@ -181,8 +181,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             });
 
         new Setting(containerEl)
-            .setName('Show Root Folder')
-            .setDesc(`如果你希望在文件树中显示根文件夹“${this.plugin.app.vault.getName()}”，请开启此选项。`)
+            .setName('显示根文件夹')
+            .setDesc(`如果你希望在文件树中显示根文件夹“${this.plugin.app.vault.getName()}”,请开启此选项。`)
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.showRootFolder).onChange((value) => {
                     this.plugin.settings.showRootFolder = value;
@@ -192,7 +192,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Folder Count')
+            .setName('文件夹计数')
             .setDesc('开启后可在文件树下看到笔记/文件数量。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.folderCount).onChange((value) => {
@@ -203,11 +203,11 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Folder Count Details')
+            .setName('文件夹计数详情')
             .setDesc('选择你希望计数时包含哪些文件。')
             .addDropdown((dropdown) => {
-                dropdown.addOption('notes', 'Notes');
-                dropdown.addOption('files', 'All Files');
+                dropdown.addOption('notes', '笔记')
+                dropdown.addOption('files', '所有文件')
                 dropdown.setValue(this.plugin.settings.folderCountOption);
                 dropdown.onChange((option) => {
                     this.plugin.settings.folderCountOption = option;
@@ -217,8 +217,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             });
 
         new Setting(containerEl)
-            .setName('Folder Note')
-            .setDesc('开启后可像 Folder Note 插件一样为文件夹创建笔记。默认点击会打开文件列表，需使用“Shift+点击”打开文件夹笔记。如果文件夹有笔记，右侧会显示箭头图标。作为文件夹笔记创建的笔记会在文件列表中隐藏。')
+            .setName('文件夹笔记')
+            .setDesc('开启后可像 Folder Note 插件一样为文件夹创建笔记。默认点击会打开文件列表,需使用“Shift+点击”打开文件夹笔记。如果文件夹有笔记,右侧会显示箭头图标。作为文件夹笔记创建的笔记会在文件列表中隐藏。')
             .addToggle((toggle) => {
                 toggle.setValue(this.plugin.settings.folderNote).onChange((value) => {
                     this.plugin.settings.folderNote = value;
@@ -231,8 +231,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
         containerEl.createEl('h2', { text: '文件面板设置' });
 
         new Setting(containerEl)
-            .setName('Include Files From Subfolders to the File List')
-            .setDesc('开启后，文件列表中会显示所选文件夹下所有子文件夹的文件。')
+            .setName('文件列表包含子文件夹文件')
+            .setDesc('开启后,文件列表中会显示所选文件夹下所有子文件夹的文件。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.showFilesFromSubFolders).onChange((value) => {
                     this.plugin.settings.showFilesFromSubFolders = value;
@@ -242,8 +242,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Toggle Button for Include Files from Subfolders')
-            .setDesc('开启后，文件列表顶部会有一个按钮用于切换“包含子文件夹文件”选项。')
+            .setName('包含子文件夹文件切换按钮')
+            .setDesc('开启后,文件列表顶部会有一个按钮用于切换“包含子文件夹文件”选项。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.showFilesFromSubFoldersButton).onChange((value) => {
                     this.plugin.settings.showFilesFromSubFoldersButton = value;
@@ -253,8 +253,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Reveal Active File in File Tree Button')
-            .setDesc('开启后，会有一个按钮用于在文件树中定位当前激活的文件，并相应设置文件夹和文件面板。')
+            .setName('在文件树中定位激活文件按钮')
+            .setDesc('开启后,会有一个按钮用于在文件树中定位当前激活的文件,并相应设置文件夹和文件面板。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.revealActiveFileButton).onChange((value) => {
                     this.plugin.settings.revealActiveFileButton = value;
@@ -264,8 +264,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Search in File List')
-            .setDesc('开启后，可通过文件名筛选文件列表。')
+            .setName('文件列表搜索')
+            .setDesc('开启后,可通过文件名筛选文件列表。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.searchFunction).onChange((value) => {
                     this.plugin.settings.searchFunction = value;
@@ -275,7 +275,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('All & Tag Search only in Focused Folder')
+            .setName('“全部”和“标签”搜索仅在聚焦文件夹中进行')
             .setDesc('“all:” 和 “tag:” 搜索默认会在整个库中查找。开启后仅在当前聚焦文件夹中搜索。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.allSearchOnlyInFocusedFolder).onChange((value) => {
@@ -285,8 +285,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Icon Before File Name')
-            .setDesc('开启后，文件列表中的文件名前会显示图标。')
+            .setName('文件名前的图标')
+            .setDesc('开启后,文件列表中的文件名前会显示图标。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.iconBeforeFileName).onChange((value) => {
                     this.plugin.settings.iconBeforeFileName = value;
@@ -296,8 +296,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Preview File on Hover')
-            .setDesc('开启后，按住 Ctrl/Cmd 并悬停在文件上可预览文件内容。')
+            .setName('悬停时预览文件')
+            .setDesc('开启后,按住 Ctrl/Cmd 并悬停在文件上可预览文件内容。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.filePreviewOnHover).onChange((value) => {
                     this.plugin.settings.filePreviewOnHover = value;
@@ -306,8 +306,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Fixed Buttons and Header in File Pane')
-            .setDesc('开启后，文件列表中的按钮和标题不会随内容滚动。')
+            .setName('文件面板中固定按钮和标题')
+            .setDesc('开启后,文件列表中的按钮和标题不会随内容滚动。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.fixedHeaderInFileList).onChange((value) => {
                     this.plugin.settings.fixedHeaderInFileList = value;
@@ -317,8 +317,8 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             );
 
         new Setting(containerEl)
-            .setName('Show file names as full path')
-            .setDesc('开启后，文件名列表中会显示完整路径而不仅仅是文件名。')
+            .setName('显示完整文件路径')
+            .setDesc('开启后,文件名列表中会显示完整路径而不仅仅是文件名。')
             .addToggle((toggle) => {
                 toggle.setValue(this.plugin.settings.showFileNameAsFullPath).onChange((value) => {
                     this.plugin.settings.showFileNameAsFullPath = value;
@@ -328,12 +328,12 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
             });
 
         new Setting(containerEl)
-            .setName('Deleted File Destination')
+            .setName('删除文件的去向')
             .setDesc('选择删除文件后文件的去向。')
             .addDropdown((dropdown) => {
-                dropdown.addOption('permanent', 'Delete Permanently');
-                dropdown.addOption('trash', 'Move to Obsidian Trash');
-                dropdown.addOption('system-trash', 'Move to System Trash');
+                dropdown.addOption('permanent', '永久删除')
+                dropdown.addOption('trash', '移至 Obsidian 回收站')
+                dropdown.addOption('system-trash', '移至系统回收站')
                 dropdown.setValue(this.plugin.settings.deleteFileOption);
                 dropdown.onChange((option: DeleteFileOption) => {
                     this.plugin.settings.deleteFileOption = option;
@@ -344,11 +344,11 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
         /* ------------- Exclusion Settings ------------- */
         containerEl.createEl('h2', { text: '文件创建' });
 
-        containerEl.createEl('p', { text: '以下设置仅在插件文件面板中使用加号（+）按钮创建文件时生效。' });
+        containerEl.createEl('p', { text: '以下设置仅在插件文件面板中使用加号(+)按钮创建文件时生效。' });
 
         new Setting(containerEl)
             .setName('Created information in YAML')
-            .setDesc('开启后，插件会在新建文件的 YAML 区块中添加创建时间。')
+            .setDesc('开启后,插件会在新建文件的 YAML 区块中添加创建时间。')
             .addToggle((toggle) => {
                 toggle.setValue(this.plugin.settings.createdYaml).onChange((value) => {
                     this.plugin.settings.createdYaml = value;
@@ -358,7 +358,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
 
         new Setting(containerEl)
             .setName('Set File Name as Header 1')
-            .setDesc('开启后，插件会将初始文件名作为主标题添加到新建文件中。')
+            .setDesc('开启后,插件会将初始文件名作为主标题添加到新建文件中。')
             .addToggle((toggle) => {
                 toggle.setValue(this.plugin.settings.fileNameIsHeader).onChange((value) => {
                     this.plugin.settings.fileNameIsHeader = value;
@@ -372,7 +372,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
 
         new Setting(containerEl)
             .setName('Hide Attachments')
-            .setDesc('开启后，“attachments”文件夹及其下所有文件将不会在视图和文件列表中显示。')
+            .setDesc('开启后,“attachments”文件夹及其下所有文件将不会在视图和文件列表中显示。')
             .addToggle((toggle) =>
                 toggle.setValue(this.plugin.settings.hideAttachments).onChange((value) => {
                     this.plugin.settings.hideAttachments = value;
@@ -383,7 +383,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
 
         new Setting(containerEl)
             .setName('Excluded File Extensions')
-            .setDesc('输入你想在文件树中排除的文件扩展名，用逗号分隔。例如：png, pdf, jpeg。更改后需重载库或点击下方“重载文件树”按钮生效。')
+            .setDesc('输入你想在文件树中排除的文件扩展名,用逗号分隔。例如：png, pdf, jpeg。更改后需重载库或点击下方“重载文件树”按钮生效。')
             .addTextArea((text) =>
                 text.setValue(this.plugin.settings.excludedExtensions).onChange((value) => {
                     this.plugin.settings.excludedExtensions = value;
@@ -393,7 +393,7 @@ export class FileTreeAlternativePluginSettingsTab extends PluginSettingTab {
 
         new Setting(containerEl)
             .setName('Excluded Folder Paths')
-            .setDesc('输入你想在文件树中排除的文件夹完整路径，用逗号分隔。例如：Personal/Attachments, Work/Documents/Folders。所有子文件夹也会被排除。更改后需重载库或点击下方“重载文件树”按钮生效。')
+            .setDesc('输入你想在文件树中排除的文件夹完整路径,用逗号分隔。例如：Personal/Attachments, Work/Documents/Folders。所有子文件夹也会被排除。更改后需重载库或点击下方“重载文件树”按钮生效。')
             .addTextArea((text) =>
                 text.setValue(this.plugin.settings.excludedFolders).onChange((value) => {
                     this.plugin.settings.excludedFolders = value;
