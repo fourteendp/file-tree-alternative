@@ -29,8 +29,8 @@ export class ConfirmationModal extends Modal {
         const headerEl = contentEl.createEl('div', { text: this.confirmationNote });
         headerEl.addClass('modal-title');
 
-        this.confirmButton = contentEl.createEl('button', { text: 'Confirm' });
-        const cancelButton = contentEl.createEl('button', { text: 'Cancel' });
+        this.confirmButton = contentEl.createEl('button', { text: '确认' });
+        const cancelButton = contentEl.createEl('button', { text: '取消' });
 
         cancelButton.style.cssText = 'float: right;';
         cancelButton.addEventListener('click', () => {
@@ -74,11 +74,11 @@ export class VaultChangeModal extends Modal {
         let headerText: string;
 
         if (this.action === 'rename') {
-            headerText = 'Rename: Provide a New Name';
+            headerText = '重命名：请提供新名称';
         } else if (this.action === 'create folder') {
-            headerText = 'Create Folder: Provide Name';
+            headerText = '创建文件夹：请提供名称';
         } else if (this.action === 'create note') {
-            headerText = 'Create Note: Provide Name';
+            headerText = '创建笔记：请提供名称';
         }
 
         const headerEl = contentEl.createEl('div', { text: headerText });
@@ -104,7 +104,7 @@ export class VaultChangeModal extends Modal {
                 }
             }
         } else if (this.action === 'create note' || this.action === 'create folder') {
-            inputEl.value = 'Untitled';
+            inputEl.value = '未命名';
             inputEl.select();
         }
 
@@ -114,16 +114,16 @@ export class VaultChangeModal extends Modal {
         let changeButtonText: string;
 
         if (this.action === 'rename') {
-            changeButtonText = 'Change Name';
+            changeButtonText = '更改名称';
         } else if (this.action === 'create folder') {
-            changeButtonText = 'Create Folder';
+            changeButtonText = '创建文件夹';
         } else if (this.action === 'create note') {
-            changeButtonText = 'Create Note';
+            changeButtonText = '创建笔记';
         }
 
         const changeButton = contentEl.createEl('button', { text: changeButtonText });
 
-        const cancelButton = contentEl.createEl('button', { text: 'Cancel' });
+        const cancelButton = contentEl.createEl('button', { text: '取消' });
         cancelButton.style.cssText = 'float: right;';
         cancelButton.addEventListener('click', () => {
             myModal.close();

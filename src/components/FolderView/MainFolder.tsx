@@ -111,7 +111,7 @@ export function MainFolder(props: FolderProps) {
         };
 
         sortMenu.addItem((menuItem) => {
-            menuItem.setTitle('Folder Name (A to Z)');
+            menuItem.setTitle('文件夹名称（A 到 Z）');
             menuItem.onClick((ev: MouseEvent) => {
                 changeSortSettingTo('name');
             });
@@ -119,7 +119,7 @@ export function MainFolder(props: FolderProps) {
 
         if (plugin.settings.folderCount) {
             sortMenu.addItem((menuItem) => {
-                menuItem.setTitle('Item Numbers (Bigger to Smaller)');
+                menuItem.setTitle('项目数量（从多到少）');
                 menuItem.onClick((ev: MouseEvent) => {
                     changeSortSettingTo('item-number');
                 });
